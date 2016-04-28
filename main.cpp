@@ -44,7 +44,7 @@ class ImaginaryNumber {
 };
 
 
-class Queue {
+class Linkedlist {
 	private:
 		struct Node {
 			float data;
@@ -56,7 +56,7 @@ class Queue {
 
 	public:
 
-		Queue(float data){
+		Linkedlist(float data){
 			Node* node = new Node;
 			node->data = data;
 			node->next = NULL;
@@ -64,7 +64,7 @@ class Queue {
 			TAIL = node;
 		}
 
-		Queue(){
+		Linkedlist(){
 			Node* node = new Node;
 			node->data = 0;
 			node->next = NULL;
@@ -72,7 +72,7 @@ class Queue {
 			TAIL = node;
 		}
 
-		void addToQueue(float data){
+		void addToLinkedlist(float data){
 			Node* node = new Node;
 			
 			node->data = data;
@@ -131,7 +131,7 @@ class Queue {
 class Mandelbrot:public ImaginaryNumber{
 	private:
 		const int MAXITER = 6000;
-		Queue q;
+		Linkedlist q;
 	public:
 		Mandelbrot(){
 			float zoom;
@@ -142,7 +142,7 @@ class Mandelbrot:public ImaginaryNumber{
 			for(int j=0;j<688;j++){
 				for(int i=0;i<1032;i++){
 					ImaginaryNumber z(i*((3.0*zoom)/1032.0)-x,y-j*((2.0*zoom)/688.0)); 
-					q.addToQueue(checkIfMandelbrot(z));
+					q.addToLinkedlist(checkIfMandelbrot(z));
 				}
 			}
 		}
